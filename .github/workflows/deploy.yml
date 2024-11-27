@@ -1,0 +1,56 @@
+name: Build and Deploy to AKS
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  APP_NAME: '{{parameters.name}}'
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build Application
+        run: npm run build
+
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+          creds: 
+
+      - name: Build and Push Docker Image
+        env:
+          REGISTRY: 
+        run: |
+          docker build -t $REGISTRY/$APP_NAME: .
+          echo  | docker login $REGISTRY -u  --password-stdin
+          docker push $REGISTRY/$APP_NAME:
+
+      - name: Set AKS Context
+        uses: azure/aks-set-context@v1
+        with:
+          creds: 
+          cluster-name: 
+          resource-group: 
+
+      - name: Update Kubernetes Manifests
+        run: |
+          sed -i 's|IMAGE_PLACEHOLDER|/{{parameters.name}}:|g' k8s/deployment.yaml
+
+      - name: Deploy to AKS
+        run: |
+          kubectl apply -f k8s/

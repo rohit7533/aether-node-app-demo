@@ -1,0 +1,11 @@
+apiVersion: backstage.io/v1beta1
+kind: Component
+metadata:
+  name:  "aether-node-app-demo"
+  description: A demo app 
+  annotations:
+    github.com/project-slug: rohit7533/aether-node-app-demo
+spec:
+  type: service
+  owner: "rohit7533"
+  lifecycle: production
