@@ -1,8 +1,9 @@
 apiVersion: backstage.io/v1beta1
 kind: Component
 metadata:
-  name:  "aether-node-app-demo"
-  description: A demo app 
+  name: pet-clinic
+  namespace: demo
+  description: Spring boot application
   annotations:
     github.com/project-slug: rohit7533/aether-node-app-demo
     tektonci/enabled: 'true'                    # Enable Tekton for this entity
