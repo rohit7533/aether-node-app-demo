@@ -6,7 +6,8 @@ metadata:
   annotations:
     github.com/project-slug: rohit7533/aether-node-app-demo
     tektonci/enabled: 'true'                    # Enable Tekton for this entity
-    tektonci/namespace: demo 
+    tektonci/namespace: demo
+    tektonci/cluster: bsidp-cluster
 spec:
   type: service
   lifecycle: production
