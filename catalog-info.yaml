@@ -5,10 +5,13 @@ metadata:
   namespace: demo
   description: Spring boot application
   annotations:
-    github.com/project-slug: rohit7533/aether-node-app-demo
+    github.com/project-slug: rohit7533/pet-clinic
     tektonci/enabled: 'true'                    # Enable Tekton for this entity
     tektonci/namespace: demo
     tektonci/cluster: bsidp-cluster
+    backstage.io/kubernetes-id: pet-clinic
+    backstage.io/kubernetes-cluster: bsidp-cluster
+    backstage.io/kubernetes-namespace: demo
 spec:
   type: service
   lifecycle: production
