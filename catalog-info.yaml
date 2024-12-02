@@ -5,7 +5,7 @@ metadata:
   description: A demo app 
   annotations:
     github.com/project-slug: rohit7533/aether-node-app-demo
+    tektonci/enabled: 'true'                    # Enable Tekton for this entity
+    tektonci/namespace: demo 
 spec:
   type: service
-  owner: "rohit7533"
-  lifecycle: production
