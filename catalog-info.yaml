@@ -9,3 +9,4 @@ metadata:
     tektonci/namespace: demo 
 spec:
   type: service
+  lifecycle: production
